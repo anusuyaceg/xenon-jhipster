@@ -41,14 +41,14 @@ public class CategoryResourceIntTest {
     private static final String DEFAULT_TYPE = "AAAAAAAAAA";
     private static final String UPDATED_TYPE = "BBBBBBBBBB";
 
-    private static final String DEFAULT_NAME = "AAAAAAAAAA";
-    private static final String UPDATED_NAME = "BBBBBBBBBB";
-
     private static final String DEFAULT_MEASUREMENT = "AAAAAAAAAA";
     private static final String UPDATED_MEASUREMENT = "BBBBBBBBBB";
 
     private static final String DEFAULT_DESCRIPTION = "AAAAAAAAAA";
     private static final String UPDATED_DESCRIPTION = "BBBBBBBBBB";
+
+    private static final String DEFAULT_NAME = "AAAAAAAAAA";
+    private static final String UPDATED_NAME = "BBBBBBBBBB";
 
     @Autowired
     private CategoryRepository categoryRepository;
@@ -91,9 +91,9 @@ public class CategoryResourceIntTest {
     public static Category createEntity(EntityManager em) {
         Category category = new Category()
             .type(DEFAULT_TYPE)
-            .name(DEFAULT_NAME)
             .measurement(DEFAULT_MEASUREMENT)
-            .description(DEFAULT_DESCRIPTION);
+            .description(DEFAULT_DESCRIPTION)
+            .name(DEFAULT_NAME);
         return category;
     }
 
@@ -118,9 +118,9 @@ public class CategoryResourceIntTest {
         assertThat(categoryList).hasSize(databaseSizeBeforeCreate + 1);
         Category testCategory = categoryList.get(categoryList.size() - 1);
         assertThat(testCategory.getType()).isEqualTo(DEFAULT_TYPE);
-        assertThat(testCategory.getName()).isEqualTo(DEFAULT_NAME);
         assertThat(testCategory.getMeasurement()).isEqualTo(DEFAULT_MEASUREMENT);
         assertThat(testCategory.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
+        assertThat(testCategory.getName()).isEqualTo(DEFAULT_NAME);
     }
 
     @Test
@@ -154,9 +154,9 @@ public class CategoryResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(category.getId().intValue())))
             .andExpect(jsonPath("$.[*].type").value(hasItem(DEFAULT_TYPE.toString())))
-            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())))
             .andExpect(jsonPath("$.[*].measurement").value(hasItem(DEFAULT_MEASUREMENT.toString())))
-            .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())));
+            .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())))
+            .andExpect(jsonPath("$.[*].name").value(hasItem(DEFAULT_NAME.toString())));
     }
 
     @Test
@@ -171,9 +171,9 @@ public class CategoryResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(category.getId().intValue()))
             .andExpect(jsonPath("$.type").value(DEFAULT_TYPE.toString()))
-            .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()))
             .andExpect(jsonPath("$.measurement").value(DEFAULT_MEASUREMENT.toString()))
-            .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION.toString()));
+            .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION.toString()))
+            .andExpect(jsonPath("$.name").value(DEFAULT_NAME.toString()));
     }
 
     @Test
@@ -196,9 +196,9 @@ public class CategoryResourceIntTest {
         Category updatedCategory = categoryRepository.findOne(category.getId());
         updatedCategory
             .type(UPDATED_TYPE)
-            .name(UPDATED_NAME)
             .measurement(UPDATED_MEASUREMENT)
-            .description(UPDATED_DESCRIPTION);
+            .description(UPDATED_DESCRIPTION)
+            .name(UPDATED_NAME);
 
         restCategoryMockMvc.perform(put("/api/categories")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -210,9 +210,9 @@ public class CategoryResourceIntTest {
         assertThat(categoryList).hasSize(databaseSizeBeforeUpdate);
         Category testCategory = categoryList.get(categoryList.size() - 1);
         assertThat(testCategory.getType()).isEqualTo(UPDATED_TYPE);
-        assertThat(testCategory.getName()).isEqualTo(UPDATED_NAME);
         assertThat(testCategory.getMeasurement()).isEqualTo(UPDATED_MEASUREMENT);
         assertThat(testCategory.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
+        assertThat(testCategory.getName()).isEqualTo(UPDATED_NAME);
     }
 
     @Test

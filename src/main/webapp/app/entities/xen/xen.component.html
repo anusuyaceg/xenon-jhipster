@@ -34,7 +34,7 @@
                 <td>{{xen.isCompleated}}</td>
                 <td>
                     <div *ngIf="xen.category">
-                        <a [routerLink]="['../category', xen.category?.id ]" >{{xen.category?.id}}</a>
+                        <a [routerLink]="['../category', xen.category?.id ]" >{{xen.category?.name}}</a>
                     </div>
                 </td>
                 <td class="text-right">

@@ -28,14 +28,14 @@ public class Category implements Serializable {
     @Column(name = "type")
     private String type;
 
-    @Column(name = "name")
-    private String name;
-
     @Column(name = "measurement")
     private String measurement;
 
     @Column(name = "description")
     private String description;
+
+    @Column(name = "name")
+    private String name;
 
     @OneToMany(mappedBy = "category")
     @JsonIgnore
@@ -63,19 +63,6 @@ public class Category implements Serializable {
         this.type = type;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public Category name(String name) {
-        this.name = name;
-        return this;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public String getMeasurement() {
         return measurement;
     }
@@ -100,6 +87,19 @@ public class Category implements Serializable {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Category name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public Set<Xen> getXens() {
@@ -152,9 +152,9 @@ public class Category implements Serializable {
         return "Category{" +
             "id=" + id +
             ", type='" + type + "'" +
-            ", name='" + name + "'" +
             ", measurement='" + measurement + "'" +
             ", description='" + description + "'" +
+            ", name='" + name + "'" +
             '}';
     }
 }

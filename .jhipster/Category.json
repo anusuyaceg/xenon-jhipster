@@ -14,21 +14,21 @@
             "fieldType": "String"
         },
         {
-            "fieldName": "name",
-            "fieldType": "String"
-        },
-        {
             "fieldName": "measurement",
             "fieldType": "String"
         },
         {
             "fieldName": "description",
             "fieldType": "String"
+        },
+        {
+            "fieldName": "name",
+            "fieldType": "String"
         }
     ],
     "changelogDate": "20170327010632",
-    "entityTableName": "category",
     "dto": "no",
-    "pagination": "no",
-    "service": "serviceImpl"
+    "service": "serviceImpl",
+    "entityTableName": "category",
+    "pagination": "no"
 }

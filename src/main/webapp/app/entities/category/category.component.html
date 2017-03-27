@@ -18,9 +18,9 @@
             <tr>
             <th><span>ID</span></th>
             <th><span>Type</span></th>
-            <th><span>Name</span></th>
             <th><span>Measurement</span></th>
             <th><span>Description</span></th>
+            <th><span>Name</span></th>
             <th></th>
             </tr>
             </thead>
@@ -28,9 +28,9 @@
             <tr *ngFor="let category of categories ;trackBy: trackId">
                 <td><a [routerLink]="['../category', category.id ]">{{category.id}}</a></td>
                 <td>{{category.type}}</td>
-                <td>{{category.name}}</td>
                 <td>{{category.measurement}}</td>
                 <td>{{category.description}}</td>
+                <td>{{category.name}}</td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"
