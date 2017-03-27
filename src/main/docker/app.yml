@@ -1,0 +1,14 @@
+version: '2'
+services:
+    xenon-app:
+        image: xenon
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:postgresql://xenon-postgresql:5432/Xenon
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+        ports:
+            - 8080:8080
+    xenon-postgresql:
+        extends:
+            file: postgresql.yml
+            service: xenon-postgresql
