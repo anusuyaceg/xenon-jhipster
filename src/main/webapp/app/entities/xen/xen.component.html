@@ -20,7 +20,7 @@
             <th><span>Title</span></th>
             <th><span>Description</span></th>
             <th><span>Is Task</span></th>
-            <th><span>Is Compleated</span></th>
+            <th><span>Is Completed</span></th>
             <th><span>Category</span></th>
             <th></th>
             </tr>
@@ -31,7 +31,7 @@
                 <td>{{xen.title}}</td>
                 <td>{{xen.description}}</td>
                 <td>{{xen.isTask}}</td>
-                <td>{{xen.isCompleated}}</td>
+                <td>{{xen.isCompleted}}</td>
                 <td>
                     <div *ngIf="xen.category">
                         <a [routerLink]="['../category', xen.category?.id ]" >{{xen.category?.name}}</a>

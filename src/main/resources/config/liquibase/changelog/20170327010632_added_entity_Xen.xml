@@ -33,7 +33,7 @@
                 <constraints nullable="true" />
             </column>
 
-            <column name="is_compleated" type="boolean">
+            <column name="is_completed" type="boolean">
                 <constraints nullable="true" />
             </column>
 

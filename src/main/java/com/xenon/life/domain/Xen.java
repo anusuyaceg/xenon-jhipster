@@ -31,8 +31,8 @@ public class Xen implements Serializable {
     @Column(name = "is_task")
     private Boolean isTask;
 
-    @Column(name = "is_compleated")
-    private Boolean isCompleated;
+    @Column(name = "is_completed")
+    private Boolean isCompleted;
 
     @ManyToOne
     private Category category;
@@ -84,17 +84,17 @@ public class Xen implements Serializable {
         this.isTask = isTask;
     }
 
-    public Boolean isIsCompleated() {
-        return isCompleated;
+    public Boolean isIsCompleted() {
+        return isCompleted;
     }
 
-    public Xen isCompleated(Boolean isCompleated) {
-        this.isCompleated = isCompleated;
+    public Xen isCompleted(Boolean isCompleted) {
+        this.isCompleted = isCompleted;
         return this;
     }
 
-    public void setIsCompleated(Boolean isCompleated) {
-        this.isCompleated = isCompleated;
+    public void setIsCompleted(Boolean isCompleted) {
+        this.isCompleted = isCompleted;
     }
 
     public Category getCategory() {
@@ -137,7 +137,7 @@ public class Xen implements Serializable {
             ", title='" + title + "'" +
             ", description='" + description + "'" +
             ", isTask='" + isTask + "'" +
-            ", isCompleated='" + isCompleated + "'" +
+            ", isCompleted='" + isCompleted + "'" +
             '}';
     }
 }

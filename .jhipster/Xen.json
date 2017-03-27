@@ -22,7 +22,7 @@
             "fieldType": "Boolean"
         },
         {
-            "fieldName": "isCompleated",
+            "fieldName": "isCompleted",
             "fieldType": "Boolean"
         }
     ],

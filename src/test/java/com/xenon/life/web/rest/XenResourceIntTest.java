@@ -47,8 +47,8 @@ public class XenResourceIntTest {
     private static final Boolean DEFAULT_IS_TASK = false;
     private static final Boolean UPDATED_IS_TASK = true;
 
-    private static final Boolean DEFAULT_IS_COMPLEATED = false;
-    private static final Boolean UPDATED_IS_COMPLEATED = true;
+    private static final Boolean DEFAULT_IS_COMPLETED = false;
+    private static final Boolean UPDATED_IS_COMPLETED = true;
 
     @Autowired
     private XenRepository xenRepository;
@@ -93,7 +93,7 @@ public class XenResourceIntTest {
             .title(DEFAULT_TITLE)
             .description(DEFAULT_DESCRIPTION)
             .isTask(DEFAULT_IS_TASK)
-            .isCompleated(DEFAULT_IS_COMPLEATED);
+            .isCompleted(DEFAULT_IS_COMPLETED);
         return xen;
     }
 
@@ -120,7 +120,7 @@ public class XenResourceIntTest {
         assertThat(testXen.getTitle()).isEqualTo(DEFAULT_TITLE);
         assertThat(testXen.getDescription()).isEqualTo(DEFAULT_DESCRIPTION);
         assertThat(testXen.isIsTask()).isEqualTo(DEFAULT_IS_TASK);
-        assertThat(testXen.isIsCompleated()).isEqualTo(DEFAULT_IS_COMPLEATED);
+        assertThat(testXen.isIsCompleted()).isEqualTo(DEFAULT_IS_COMPLETED);
     }
 
     @Test
@@ -156,7 +156,7 @@ public class XenResourceIntTest {
             .andExpect(jsonPath("$.[*].title").value(hasItem(DEFAULT_TITLE.toString())))
             .andExpect(jsonPath("$.[*].description").value(hasItem(DEFAULT_DESCRIPTION.toString())))
             .andExpect(jsonPath("$.[*].isTask").value(hasItem(DEFAULT_IS_TASK.booleanValue())))
-            .andExpect(jsonPath("$.[*].isCompleated").value(hasItem(DEFAULT_IS_COMPLEATED.booleanValue())));
+            .andExpect(jsonPath("$.[*].isCompleted").value(hasItem(DEFAULT_IS_COMPLETED.booleanValue())));
     }
 
     @Test
@@ -173,7 +173,7 @@ public class XenResourceIntTest {
             .andExpect(jsonPath("$.title").value(DEFAULT_TITLE.toString()))
             .andExpect(jsonPath("$.description").value(DEFAULT_DESCRIPTION.toString()))
             .andExpect(jsonPath("$.isTask").value(DEFAULT_IS_TASK.booleanValue()))
-            .andExpect(jsonPath("$.isCompleated").value(DEFAULT_IS_COMPLEATED.booleanValue()));
+            .andExpect(jsonPath("$.isCompleted").value(DEFAULT_IS_COMPLETED.booleanValue()));
     }
 
     @Test
@@ -198,7 +198,7 @@ public class XenResourceIntTest {
             .title(UPDATED_TITLE)
             .description(UPDATED_DESCRIPTION)
             .isTask(UPDATED_IS_TASK)
-            .isCompleated(UPDATED_IS_COMPLEATED);
+            .isCompleted(UPDATED_IS_COMPLETED);
 
         restXenMockMvc.perform(put("/api/xens")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -212,7 +212,7 @@ public class XenResourceIntTest {
         assertThat(testXen.getTitle()).isEqualTo(UPDATED_TITLE);
         assertThat(testXen.getDescription()).isEqualTo(UPDATED_DESCRIPTION);
         assertThat(testXen.isIsTask()).isEqualTo(UPDATED_IS_TASK);
-        assertThat(testXen.isIsCompleated()).isEqualTo(UPDATED_IS_COMPLEATED);
+        assertThat(testXen.isIsCompleted()).isEqualTo(UPDATED_IS_COMPLETED);
     }
 
     @Test

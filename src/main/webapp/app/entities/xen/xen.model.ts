@@ -5,10 +5,10 @@ export class Xen {
         public title?: string,
         public description?: string,
         public isTask?: boolean,
-        public isCompleated?: boolean,
+        public isCompleted?: boolean,
         public category?: Category,
     ) {
         this.isTask = false;
-        this.isCompleated = false;
+        this.isCompleted = false;
     }
 }
